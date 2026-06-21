@@ -1,0 +1,46 @@
+[project]
+name = "langchain-quickstart"
+version = "0.1.0"
+description = "从零开始，用实战带你入门 LangChain 开发"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Your Name", email = "your.email@example.com" }
+]
+dependencies = [
+    "langchain>=0.3.0",
+    "langchain-core>=0.3.0",
+    "langchain-openai>=0.2.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+]
+rag = [
+    "zvec>=0.5.0",
+    "langchain-community>=0.3.0",
+]
+agent = [
+    "duckduckgo-search>=5.0.0",
+]
+all = [
+    "langchain[rag,agent,dev]",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# 不构建为 Python 包，仅用于 uv 依赖管理
+[tool.hatch.build.targets.wheel]
+packages = []
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+]
