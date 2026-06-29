@@ -31,14 +31,6 @@ all = [
     "langchain[rag,agent,dev]",
 ]
 
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
-# 不构建为 Python 包，仅用于 uv 依赖管理
-[tool.hatch.build.targets.wheel]
-packages = []
-
 [tool.uv]
 dev-dependencies = [
     "pytest>=7.0.0",
